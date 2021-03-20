@@ -20,16 +20,19 @@ int main () {
         string password;
         cout << "password : ";
         cin >> password;
-        if (command == 1)
-            create_new_user(username, password);
+        if (command == 1) {
+            pair<bool, string> user = create_new_user(username, password);
+            cout << user.second << endl;
+        }
         else {
             bool lg = is_valid(username, password);
-            if (lg) cout << "TRUE";
-            else cout << "FALSE";
+            if (lg) cout << "You are logged in!";
+            else cout << "Username or password did not match!";
             cout << endl;
-            int c;
-            cin >> c;
         }
+        cout << "Enter smth to continue : ";
+        char c;
+        cin >> c;
     }
     return 0;
 }
