@@ -2,8 +2,7 @@
 
 using namespace std; 
 
-#include "inc.h"
-#include "dyc.h"
+#include "libraries/auth.h"
 
 int main () {
     while (true) {
@@ -25,10 +24,8 @@ int main () {
             cout << user.second << endl;
         }
         else {
-            bool lg = is_valid(username, password);
-            if (lg) cout << "You are logged in!";
-            else cout << "Username or password did not match!";
-            cout << endl;
+            pair<bool, string> log = login(username, password);
+            cout << log.second << endl;  
         }
         cout << "Enter smth to continue : ";
         char c;
